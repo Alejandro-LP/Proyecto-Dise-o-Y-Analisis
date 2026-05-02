@@ -1,32 +1,21 @@
 package modelo;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class ConexionBD {
 
-    public Connection conexion;
-    public PreparedStatement sentencia;
+    private static final String URL    = "jdbc:mysql://localhost:3306/mercadored";
+    private static final String USUARIO = "root";
+    private static final String CLAVE   = "";  // Cambia según tu configuración
 
-    public ConexionBD() {
-
-        String ruta = "jdbc:mysql://localhost:3306/mercadored";
+    public static Connection obtenerConexion() throws SQLException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conexion = DriverManager.getConnection(ruta, "root", "2006");
         } catch (ClassNotFoundException e) {
-            System.out.println("Error: " + e);
-        } catch (SQLException e) {
-            System.out.println("Error de conexión: " + e);
+            throw new SQLException("Driver MySQL no encontrado: " + e.getMessage());
         }
+        return DriverManager.getConnection(URL, USUARIO, CLAVE);
     }
-
-    public Connection getConexion() {
-        return conexion;
-    }
-
-    public void setConexion(Connection conexion) {
-        this.conexion = conexion;
-    }
-    
-    
 }

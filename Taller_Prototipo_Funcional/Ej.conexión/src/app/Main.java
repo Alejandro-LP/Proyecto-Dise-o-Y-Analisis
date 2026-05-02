@@ -1,21 +1,21 @@
 package app;
 
-import controlador.*;
+import controlador.ControladorPrincipal;
 
 import javax.swing.*;
 
 public class Main {
-
     public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            JFrame ventana = new JFrame("MercadoRed");
+            ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            ventana.setSize(700, 650);
+            ventana.setLocationRelativeTo(null);
+            ventana.setResizable(false);
 
-        JFrame frame = new JFrame("MercadoRed");
-        frame.setSize(500, 500);
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            new ControladorPrincipal(ventana);
 
-        ControladorPrincipal app = new ControladorPrincipal(frame);
-        app.iniciar();
-
-        frame.setVisible(true);
+            ventana.setVisible(true);
+        });
     }
 }
