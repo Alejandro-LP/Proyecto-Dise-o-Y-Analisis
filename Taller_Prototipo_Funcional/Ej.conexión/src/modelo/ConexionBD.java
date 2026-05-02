@@ -8,7 +8,7 @@ public class ConexionBD {
 
     private static final String URL    = "jdbc:mysql://localhost:3306/mercadored";
     private static final String USUARIO = "root";
-    private static final String CLAVE   = "";  // Cambia según tu configuración
+    private static final String CLAVE   = "2006";  
 
     public static Connection obtenerConexion() throws SQLException {
         try {

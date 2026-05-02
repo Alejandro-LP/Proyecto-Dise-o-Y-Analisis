@@ -4,9 +4,7 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-/**
- * Panel intermedio para elegir tipo de cuenta antes del registro.
- */
+
 public class PanelSeleccionRegistro extends JPanel {
 
     public JButton btnComprador;
@@ -80,8 +78,13 @@ public class PanelSeleccionRegistro extends JPanel {
         btn.setAlignmentX(Component.LEFT_ALIGNMENT);
         Color hover = color.darker();
         btn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent e) { btn.setBackground(hover); }
-            public void mouseExited(java.awt.event.MouseEvent e)  { btn.setBackground(color); }
+            public void mouseEntered(java.awt.event.MouseEvent e) {
+                btn.setBackground(hover);
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent e) {
+                btn.setBackground(color);
+            }
         });
     }
 

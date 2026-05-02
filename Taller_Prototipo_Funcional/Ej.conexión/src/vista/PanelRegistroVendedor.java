@@ -5,9 +5,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 /**
- * RF002 — Registro de vendedor.
- * CA004: cuenta bancaria obligatoria
- * CA005: checkbox de aceptación de contrato
+ * RF002 — Registro de vendedor. CA004: cuenta bancaria obligatoria CA005:
+ * checkbox de aceptación de contrato
  */
 public class PanelRegistroVendedor extends JPanel {
 
@@ -48,13 +47,13 @@ public class PanelRegistroVendedor extends JPanel {
         card.add(aviso);
         card.add(Box.createRigidArea(new Dimension(0, 20)));
 
-        txtNombre          = campo(card, "Nombre completo (*)");
-        txtDocumento       = campo(card, "Documento de identidad (*)");
-        txtCorreo          = campo(card, "Correo electrónico (*)");
-        txtCelular         = campo(card, "Número de celular (*)");
-        txtDireccion       = campo(card, "Dirección física (*)");
-        txtCuentaBancaria  = campo(card, "Cuenta bancaria (*)");
-        txtPassword        = campoPassword(card, "Contraseña (*)");
+        txtNombre = campo(card, "Nombre completo (*)");
+        txtDocumento = campo(card, "Documento de identidad (*)");
+        txtCorreo = campo(card, "Correo electrónico (*)");
+        txtCelular = campo(card, "Número de celular (*)");
+        txtDireccion = campo(card, "Dirección física (*)");
+        txtCuentaBancaria = campo(card, "Cuenta bancaria (*)");
+        txtPassword = campoPassword(card, "Contraseña (*)");
         txtConfirmPassword = campoPassword(card, "Confirmar contraseña (*)");
 
         // CA005: contrato de comisión
@@ -83,19 +82,50 @@ public class PanelRegistroVendedor extends JPanel {
 
         JScrollPane scroll = new JScrollPane(card);
         scroll.setBorder(null);
-        scroll.setPreferredSize(new Dimension(500, 620));
-        add(scroll);
+        scroll.setPreferredSize(new Dimension(500, 520));
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.insets = new Insets(10, 10, 10, 10);
+        add(scroll, gbc);
     }
 
-    public String getNombre()          { return txtNombre.getText().trim(); }
-    public String getDocumento()       { return txtDocumento.getText().trim(); }
-    public String getCorreo()          { return txtCorreo.getText().trim(); }
-    public String getCelular()         { return txtCelular.getText().trim(); }
-    public String getDireccion()       { return txtDireccion.getText().trim(); }
-    public String getCuentaBancaria()  { return txtCuentaBancaria.getText().trim(); }
-    public String getPassword()        { return new String(txtPassword.getPassword()); }
-    public String getConfirmPassword() { return new String(txtConfirmPassword.getPassword()); }
-    public boolean contratoAceptado()  { return chkContrato.isSelected(); }
+    public String getNombre() {
+        return txtNombre.getText().trim();
+    }
+
+    public String getDocumento() {
+        return txtDocumento.getText().trim();
+    }
+
+    public String getCorreo() {
+        return txtCorreo.getText().trim();
+    }
+
+    public String getCelular() {
+        return txtCelular.getText().trim();
+    }
+
+    public String getDireccion() {
+        return txtDireccion.getText().trim();
+    }
+
+    public String getCuentaBancaria() {
+        return txtCuentaBancaria.getText().trim();
+    }
+
+    public String getPassword() {
+        return new String(txtPassword.getPassword());
+    }
+
+    public String getConfirmPassword() {
+        return new String(txtConfirmPassword.getPassword());
+    }
+
+    public boolean contratoAceptado() {
+        return chkContrato.isSelected();
+    }
 
     public void mostrarMensaje(String msg, boolean esError) {
         lblMensaje.setText(msg);
@@ -147,8 +177,13 @@ public class PanelRegistroVendedor extends JPanel {
         btn.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
         btn.setAlignmentX(Component.LEFT_ALIGNMENT);
         btn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent e) { btn.setBackground(new Color(41, 128, 185)); }
-            public void mouseExited(java.awt.event.MouseEvent e)  { btn.setBackground(new Color(52, 152, 219)); }
+            public void mouseEntered(java.awt.event.MouseEvent e) {
+                btn.setBackground(new Color(41, 128, 185));
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent e) {
+                btn.setBackground(new Color(52, 152, 219));
+            }
         });
     }
 
