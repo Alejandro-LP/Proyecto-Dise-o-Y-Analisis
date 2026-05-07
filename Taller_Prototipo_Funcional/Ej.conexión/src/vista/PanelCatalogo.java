@@ -181,14 +181,22 @@ public class PanelCatalogo extends JPanel {
         contenedor.add(lblResultados, BorderLayout.NORTH);
 
         panelResultados = new JPanel();
-        panelResultados.setLayout(new WrapLayout(FlowLayout.LEFT, 12, 12));
+        panelResultados.setLayout(new FlowLayout(FlowLayout.LEFT, 12, 12));
         panelResultados.setBackground(new Color(245, 247, 250));
         panelResultados.setBorder(new EmptyBorder(0, 8, 8, 8));
         contenedor.add(panelResultados, BorderLayout.CENTER);
 
         JScrollPane scroll = new JScrollPane(contenedor);
         scroll.setBorder(null);
-        scroll.getVerticalScrollBar().setUnitIncrement(16);
+
+        scroll.getVerticalScrollBar().setUnitIncrement(12);
+
+        scroll.getHorizontalScrollBar().setUnitIncrement(4);
+        scroll.getHorizontalScrollBar().setBlockIncrement(20);
+
+        scroll.getHorizontalScrollBar().setPreferredSize(
+                new Dimension(0, 14)
+        );
         return scroll;
     }
 
